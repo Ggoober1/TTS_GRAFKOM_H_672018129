@@ -1,0 +1,108 @@
+#include <iostream>
+#include <GL/freeglut.h>
+
+
+
+
+void display1() {
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(0.2, 0.1, 0.0);
+	float ax1 = 10, ay1 = 0, ax2 = 60, ay2 = 55, ax3 = 50,
+		  ay3 = 25, ax4 = 20, ay4 = 45, ax5 = 10, ay5 = 0;
+	float bx1 = 30, bx2 = 80, bx3 = 70, bx4 = 40,
+		  by1 = 10, by2 = 55, by3 = 20, by2 = 30;
+	glBegin(GL_LINE_LOOP);
+	glVertex2f(ax1, ay1);
+	glVertex2f(ax1, ay2);
+	glVertex2f(ax2, ay2);
+	glVertex2f(ax2, ay3);
+	glVertex2f(ax3, ay3);
+	glVertex2f(ax3, ay4);
+	glVertex2f(ax3, ay4);
+	glVertex2f(ax4, ay4);
+	glVertex2f(ax4, ay5);
+	glVertex2f(ax5, ay5);
+	glEnd();
+	glFlush();
+
+	/*glBegin(GL_LINE_LOOP);
+	glVertex2f(bx1, by1);
+	glVertex2f(bx2, by1);
+	glVertex2f(bx2, by2);
+	glVertex2f(ax3, by2);
+	glVertex2f(ax3, ay3);
+	glVertex2f(ax3, ay4);
+	glVertex2f(ax4, ay4);
+	glVertex2f(ax4, ay5);
+	glVertex2f(ax5, ay5);*/
+	glEnd();
+	glFlush();
+
+	glBegin(GL_QUADS); //1
+	glVertex2f(0.0,65.0); 
+	glVertex2f(0.0, 100.0);
+	glVertex2f(499.0, 100.0);
+	glVertex2f(499.0, 65.0);
+	glEnd();
+	glFlush();
+	
+	
+
+	glBegin(GL_QUADS); //2
+	glVertex2f(0.0, 150.0);
+	glVertex2f(0.0, 185.0);
+	glVertex2f(499.0, 185.0);
+	glVertex2f(499.0, 150.0);
+	glEnd();
+	glFlush();
+
+	glBegin(GL_QUADS); //3
+	glVertex2f(0.0, 240.0);
+	glVertex2f(0.0, 275.0);
+	glVertex2f(499.0, 275.0);
+	glVertex2f(499.0, 240.0);
+	glEnd();
+	glFlush();
+
+	glBegin(GL_QUADS); //4
+	glVertex2f(0.0, 330.0);
+	glVertex2f(0.0, 365.0);
+	glVertex2f(499.0, 365.0);
+	glVertex2f(499.0, 330.0);
+	glEnd();
+	glFlush();
+
+	glBegin(GL_QUADS); //5
+	glVertex2f(0.0, 420.0);
+	glVertex2f(0.0, 455.0);
+	glVertex2f(499.0, 455.0);
+	glVertex2f(499.0, 420.0);
+	glEnd();
+	glFlush();
+
+}
+
+void myinit() {
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glColor3f(0.0, 0.0, 0.0);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glPointSize(1.0);
+	glLineWidth(1.0f);
+	gluOrtho2D(0.0, 499.0, 0.0, 499.0);
+}
+
+int main(int argc, char** argv) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowSize(500, 550);
+	glutInitWindowPosition(0,0);
+	glutCreateWindow("Points");
+	glutDisplayFunc(display1);
+
+	myinit();
+	glutMainLoop();
+
+	return 0;
+}
